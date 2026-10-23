@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Acutil – Geist & Körper</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: #1d2b35;
+            background: #f7f8f6;
+        }
+
+        /* HEADER */
+
+        header {
+            height: 80px;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 7%;
+            border-bottom: 1px solid #e5e8e6;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .logo {
+            font-size: 30px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: #174b45;
+        }
+
+        nav {
+            display: flex;
+            gap: 35px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #34434a;
+            font-size: 15px;
+        }
+
+        nav a:hover {
+            color: #174b45;
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 570px;
+            display: flex;
+            align-items: center;
+            padding: 70px 8%;
+            background: linear-gradient(120deg, #e7f0ec, #f8f8f5);
+        }
+
+        .hero-content {
+            max-width: 650px;
+        }
+
+        .small-title {
+            color: #54756e;
+            font-size: 14px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: clamp(45px, 6vw, 75px);
+            line-height: 1.05;
+            font-weight: 500;
+            margin-bottom: 30px;
+        }
+
+        .hero-text {
+            font-size: 19px;
+            line-height: 1.7;
+            color: #526068;
+            max-width: 570px;
+        }
+
+        .hero-button {
+            display: inline-block;
+            margin-top: 35px;
+            padding: 15px 28px;
+            background: #174b45;
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+        }
+
+        /* INFO SECTION */
+
+        .section {
+            padding: 90px 8%;
+            background: white;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 40px;
+            font-weight: 500;
+            margin-bottom: 50px;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .card {
+            padding: 35px;
+            background: #f2f5f2;
+            border-radius: 18px;
+        }
+
+        .card-number {
+            font-size: 14px;
+            color: #64817b;
+            margin-bottom: 20px;
+        }
+
+        .card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .card p {
+            color: #68757b;
+            line-height: 1.7;
+        }
+
+        /* CHATBOT */
+
+        .chat-section {
+            padding: 100px 20px;
+            background: #e9f0ed;
+        }
+
+        .chat-container {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            border-radius: 25px;
+            padding: 35px;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.08);
+        }
+
+        .chat-title {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .chat-description {
+            color: #69757a;
+            margin-bottom: 30px;
+        }
+
+        .messages {
+            height: 300px;
+            overflow-y: auto;
+            background: #f5f7f6;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .message {
+            max-width: 80%;
+            padding: 12px 16px;
+            border-radius: 15px;
+            margin-bottom: 12px;
+            line-height: 1.5;
+        }
+
+        .bot {
+            background: #dfeae6;
+            margin-right: auto;
+        }
+
+        .user {
+            background: #174b45;
+            color: white;
+            margin-left: auto;
+        }
+
+        /* SLIDER */
+
+        .personality {
+            margin-bottom: 25px;
+        }
+
+        .personality-label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-size: 14px;
+            color: #59666b;
+        }
+
+        input[type="range"] {
+            width: 100%;
+            accent-color: #174b45;
+            cursor: pointer;
+        }
+
+        /* INPUT */
+
+        .chat-input {
+            display: flex;
+            gap: 10px;
+        }
+
+        .chat-input input {
+            flex: 1;
+            padding: 15px 18px;
+            border: 1px solid #d5dcda;
+            border-radius: 30px;
+            font-size: 15px;
+            outline: none;
+        }
+
+        .chat-input button {
+            padding: 15px 25px;
+            border: none;
+            border-radius: 30px;
+            background: #174b45;
+            color: white;
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        .chat-input button:hover {
+            opacity: 0.85;
+        }
+
+        /* FOOTER */
+
+        footer {
+            background: #173d39;
+            color: white;
+            padding: 50px 8%;
+            text-align: center;
+        }
+
+        footer p {
+            opacity: 0.75;
+            margin-top: 10px;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 750px) {
+
+            nav {
+                display: none;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                padding: 60px 7%;
+            }
+
+            .chat-container {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+
+    <header>
+        <div class="logo">ACUTIL</div>
+
+        <nav>
+            <a href="#home">Kopfsache</a>
+            <a href="#wissen">Acutil</a>
+            <a href="#chat">AI Assistant</a>
+            <a href="#tipps">Tipps</a>
+        </nav>
+    </header>
+
+
+    <!-- HERO -->
+
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <div class="small-title">
+                Geist & Körper
+            </div>
+
+            <h1>
+                Für die Leistungsfähigkeit von Geist & Körper.
+            </h1>
+
+            <p class="hero-text">
+                Entdecke Informationen und Inspiration rund um Konzentration,
+                geistige Leistungsfähigkeit und einen bewussten Alltag.
+            </p>
+
+            <a href="#chat" class="hero-button">
+                Mit unserem AI Assistant sprechen
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- INFORMATION -->
+
+    <section class="section" id="wissen">
+
+        <h2 class="section-title">
+            Dein Geist. Deine Aufmerksamkeit.
+        </h2>
+
+        <div class="cards">
+
+            <div class="card">
+                <div class="card-number">01</div>
+
+                <h3>Konzentration</h3>
+
+                <p>
+                    Konzentration hilft uns dabei, wichtige Aufgaben
+                    bewusst wahrzunehmen und unsere Aufmerksamkeit
+                    gezielt einzusetzen.
+                </p>
+            </div>
+
+
+            <div class="card">
+                <div class="card-number">02</div>
+
+                <h3>Mentale Energie</h3>
+
+                <p>
+                    Ein bewusster Alltag, ausreichend Erholung und
+                    gute Gewohnheiten können unsere geistige
+                    Leistungsfähigkeit unterstützen.
+                </p>
+            </div>
+
+
+            <div class="card">
+                <div class="card-number">03</div>
+
+                <h3>Balance</h3>
+
+                <p>
+                    Körper und Geist gehören zusammen. Kleine
+                    Veränderungen im Alltag können einen großen
+                    Unterschied machen.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CHAT -->
+
+    <section class="chat-section" id="chat">
+
+        <div class="chat-container">
+
+            <h2 class="chat-title">
+                Dein AI Assistant
+            </h2>
+
+            <p class="chat-description">
+                Stelle eine Frage und passe den Charakter
+                des Assistants mit dem Slider an.
+            </p>
+
+
+            <div class="messages" id="messages">
+
+                <div class="message bot">
+                    Hallo! 👋 Ich bin dein persönlicher AI Assistant.
+                    Wie kann ich dir helfen?
+                </div>
+
+            </div>
+
+
+            <!-- PERSONALITY SLIDER -->
+
+            <div class="personality">
+
+                <div class="personality-label">
+
+                    <span>Direkt</span>
+
+                    <strong id="personalityValue">
+                        Ausgewogen
+                    </strong>
+
+                    <span>Sehr freundlich</span>
+
+                </div>
+
+                <input
+                    type="range"
+                    id="personality"
+                    min="0"
+                    max="100"
+                    value="50"
+                >
+
+            </div>
+
+
+            <!-- MESSAGE INPUT -->
+
+            <div class="chat-input">
+
+                <input
+                    type="text"
+                    id="userInput"
+                    placeholder="Deine Nachricht..."
+                >
+
+                <button onclick="sendMessage()">
+                    Senden
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer id="tipps">
+
+        <strong>ACUTIL</strong>
+
+        <p>
+            Geist & Körper im Fokus.
+        </p>
+
+    </footer>
+
+
+    <script>
+
+        /* PERSONALITY SLIDER */
+
+        const slider = document.getElementById("personality");
+        const personalityValue =
+            document.getElementById("personalityValue");
+
+        slider.addEventListener("input", function() {
+
+            const value = Number(this.value);
+
+            if (value < 20) {
+                personalityValue.textContent = "Sehr direkt";
+            }
+            else if (value < 40) {
+                personalityValue.textContent = "Direkt";
+            }
+            else if (value < 60) {
+                personalityValue.textContent = "Ausgewogen";
+            }
+            else if (value < 80) {
+                personalityValue.textContent = "Freundlich";
+            }
+            else {
+                personalityValue.textContent = "Sehr freundlich";
+            }
+
+        });
+
+
+        /* TEMPORARY CHAT */
+
+        function sendMessage() {
+
+            const input =
+                document.getElementById("userInput");
+
+            const messages =
+                document.getElementById("messages");
+
+            const text = input.value.trim();
+
+            if (!text) {
+                return;
+            }
+
+
+            /* User message */
+
+            const userMessage =
+                document.createElement("div");
+
+            userMessage.className = "message user";
+
+            userMessage.textContent = text;
+
+            messages.appendChild(userMessage);
+
+
+            input.value = "";
+
+
+            /* Temporary bot response */
+
+            setTimeout(function() {
+
+                const botMessage =
+                    document.createElement("div");
+
+                botMessage.className = "message bot";
+
+                botMessage.textContent =
+                    "Danke für deine Nachricht! Bald werde ich mit echter AI antworten. 🤖";
+
+                messages.appendChild(botMessage);
+
+                messages.scrollTop =
+                    messages.scrollHeight;
+
+            }, 500);
+
+        }
+
+    </script>
+
+</body>
+</html>

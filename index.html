@@ -1,44 +1,59 @@
+```html
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Acutil – Geist & Körper</title>
+    <title>ACUTIL — Mind & Body</title>
 
     <style>
+
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
             font-family: Arial, Helvetica, sans-serif;
-            color: #1d2b35;
-            background: #f7f8f6;
+            color: #193b37;
+            background: #f5f7f4;
         }
 
-        /* HEADER */
+        /* =========================
+           HEADER
+        ========================= */
 
         header {
-            height: 80px;
-            background: white;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+
+            height: 82px;
+
             display: flex;
             align-items: center;
             justify-content: space-between;
+
             padding: 0 7%;
-            border-bottom: 1px solid #e5e8e6;
-            position: sticky;
-            top: 0;
-            z-index: 10;
+
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+
+            border-bottom: 1px solid #e5ebe7;
         }
 
         .logo {
-            font-size: 30px;
+            font-size: 28px;
             font-weight: 700;
-            letter-spacing: 2px;
-            color: #174b45;
+            letter-spacing: 3px;
+            color: #174d46;
         }
 
         nav {
@@ -47,177 +62,352 @@
         }
 
         nav a {
+            color: #36524e;
             text-decoration: none;
-            color: #34434a;
-            font-size: 15px;
+            font-size: 14px;
         }
 
         nav a:hover {
-            color: #174b45;
+            color: #174d46;
         }
 
-        /* HERO */
+        .header-button {
+            background: #174d46;
+            color: white;
+            padding: 12px 22px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
 
         .hero {
-            min-height: 570px;
+            min-height: 720px;
+
             display: flex;
             align-items: center;
-            padding: 70px 8%;
-            background: linear-gradient(120deg, #e7f0ec, #f8f8f5);
+
+            padding: 80px 7%;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(235,242,237,0.98) 0%,
+                    rgba(235,242,237,0.85) 45%,
+                    rgba(235,242,237,0.25) 100%
+                ),
+                url("https://images.unsplash.com/photo-1499209974431-9dddcece7f88?auto=format&fit=crop&w=2000&q=85");
+
+            background-size: cover;
+            background-position: center;
         }
 
         .hero-content {
-            max-width: 650px;
+            max-width: 680px;
         }
 
-        .small-title {
-            color: #54756e;
-            font-size: 14px;
-            letter-spacing: 2px;
+        .eyebrow {
+            font-size: 13px;
+            letter-spacing: 3px;
             text-transform: uppercase;
-            margin-bottom: 20px;
+            color: #66847e;
+            margin-bottom: 25px;
         }
 
-        h1 {
-            font-size: clamp(45px, 6vw, 75px);
-            line-height: 1.05;
+        .hero h1 {
+            font-size: clamp(50px, 7vw, 88px);
+            line-height: 0.98;
             font-weight: 500;
-            margin-bottom: 30px;
+            letter-spacing: -3px;
+            margin-bottom: 35px;
         }
 
-        .hero-text {
-            font-size: 19px;
+        .hero p {
+            font-size: 20px;
             line-height: 1.7;
-            color: #526068;
-            max-width: 570px;
+            color: #506761;
+            max-width: 580px;
         }
 
-        .hero-button {
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 40px;
+        }
+
+        .primary-button {
             display: inline-block;
-            margin-top: 35px;
-            padding: 15px 28px;
-            background: #174b45;
+            padding: 16px 27px;
+
+            background: #174d46;
             color: white;
-            text-decoration: none;
+
             border-radius: 30px;
+
+            text-decoration: none;
         }
 
-        /* INFO SECTION */
+        .secondary-button {
+            display: inline-block;
+            padding: 16px 27px;
 
-        .section {
-            padding: 90px 8%;
+            background: white;
+            color: #174d46;
+
+            border-radius: 30px;
+
+            text-decoration: none;
+        }
+
+
+        /* =========================
+           INTRO
+        ========================= */
+
+        .intro {
+            padding: 120px 8%;
             background: white;
         }
 
-        .section-title {
-            text-align: center;
-            font-size: 40px;
-            font-weight: 500;
-            margin-bottom: 50px;
+        .intro-inner {
+            max-width: 1050px;
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+
+            align-items: center;
         }
 
-        .cards {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
-            max-width: 1100px;
+        .intro-image {
+            width: 100%;
+            height: 500px;
+
+            object-fit: cover;
+
+            border-radius: 25px;
+        }
+
+        .intro-text span {
+            color: #78928c;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .intro-text h2 {
+            font-size: 48px;
+            line-height: 1.1;
+            font-weight: 500;
+            margin: 20px 0 25px;
+        }
+
+        .intro-text p {
+            color: #657570;
+            line-height: 1.8;
+            font-size: 17px;
+        }
+
+
+        /* =========================
+           TOPICS
+        ========================= */
+
+        .topics {
+            padding: 110px 7%;
+            background: #eaf0ed;
+        }
+
+        .section-heading {
+            text-align: center;
+            max-width: 650px;
             margin: auto;
         }
 
-        .card {
-            padding: 35px;
-            background: #f2f5f2;
-            border-radius: 18px;
+        .section-heading span {
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #718a84;
         }
 
-        .card-number {
-            font-size: 14px;
-            color: #64817b;
-            margin-bottom: 20px;
+        .section-heading h2 {
+            font-size: 50px;
+            font-weight: 500;
+            margin-top: 18px;
         }
 
-        .card h3 {
-            font-size: 24px;
-            margin-bottom: 15px;
-        }
-
-        .card p {
-            color: #68757b;
+        .section-heading p {
+            color: #657570;
+            margin-top: 20px;
             line-height: 1.7;
         }
 
-        /* CHATBOT */
+        .topic-grid {
+            max-width: 1100px;
+            margin: 60px auto 0;
 
-        .chat-section {
-            padding: 100px 20px;
-            background: #e9f0ed;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .topic-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+
+            transition: transform 0.3s ease;
+        }
+
+        .topic-card:hover {
+            transform: translateY(-7px);
+        }
+
+        .topic-card img {
+            width: 100%;
+            height: 230px;
+            object-fit: cover;
+        }
+
+        .topic-content {
+            padding: 28px;
+        }
+
+        .topic-content h3 {
+            font-size: 25px;
+            margin-bottom: 12px;
+        }
+
+        .topic-content p {
+            color: #71807c;
+            line-height: 1.7;
+        }
+
+
+        /* =========================
+           AI SECTION
+        ========================= */
+
+        .ai-section {
+            padding: 120px 20px;
+            background: #173f3a;
+            color: white;
+        }
+
+        .ai-intro {
+            max-width: 700px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .ai-intro span {
+            font-size: 13px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            opacity: 0.7;
+        }
+
+        .ai-intro h2 {
+            font-size: 55px;
+            font-weight: 400;
+            margin-top: 20px;
+        }
+
+        .ai-intro p {
+            margin-top: 20px;
+            line-height: 1.7;
+            opacity: 0.75;
         }
 
         .chat-container {
             max-width: 800px;
-            margin: auto;
+            margin: 55px auto 0;
+
             background: white;
+            color: #193b37;
+
             border-radius: 25px;
-            padding: 35px;
-            box-shadow: 0 15px 50px rgba(0,0,0,0.08);
-        }
 
-        .chat-title {
-            font-size: 32px;
-            margin-bottom: 10px;
-        }
+            padding: 30px;
 
-        .chat-description {
-            color: #69757a;
-            margin-bottom: 30px;
+            box-shadow: 0 25px 80px rgba(0,0,0,0.2);
         }
 
         .messages {
-            height: 300px;
-            overflow-y: auto;
-            background: #f5f7f6;
-            border-radius: 15px;
+            height: 320px;
+
             padding: 20px;
-            margin-bottom: 20px;
+
+            overflow-y: auto;
+
+            background: #f3f6f4;
+
+            border-radius: 18px;
+
+            margin-bottom: 25px;
         }
 
         .message {
             max-width: 80%;
-            padding: 12px 16px;
+
+            padding: 13px 17px;
+
             border-radius: 15px;
+
             margin-bottom: 12px;
+
             line-height: 1.5;
         }
 
         .bot {
             background: #dfeae6;
-            margin-right: auto;
         }
 
         .user {
-            background: #174b45;
-            color: white;
             margin-left: auto;
+            background: #174d46;
+            color: white;
         }
 
-        /* SLIDER */
+        /* PERSONALITY */
 
         .personality {
             margin-bottom: 25px;
         }
 
-        .personality-label {
+        .personality-header {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 10px;
+
+            margin-bottom: 12px;
+
             font-size: 14px;
-            color: #59666b;
+        }
+
+        .personality-header strong {
+            color: #174d46;
         }
 
         input[type="range"] {
             width: 100%;
-            accent-color: #174b45;
+            accent-color: #174d46;
             cursor: pointer;
+        }
+
+        .range-labels {
+            display: flex;
+            justify-content: space-between;
+
+            margin-top: 7px;
+
+            font-size: 12px;
+            color: #84908c;
         }
 
         /* INPUT */
@@ -229,333 +419,616 @@
 
         .chat-input input {
             flex: 1;
-            padding: 15px 18px;
-            border: 1px solid #d5dcda;
+
+            padding: 16px 20px;
+
+            border: 1px solid #d6dedb;
+
             border-radius: 30px;
-            font-size: 15px;
+
             outline: none;
+
+            font-size: 15px;
         }
 
         .chat-input button {
             padding: 15px 25px;
+
             border: none;
+
+            background: #174d46;
+            color: white;
+
             border-radius: 30px;
-            background: #174b45;
-            color: white;
+
             cursor: pointer;
-            font-size: 15px;
         }
 
-        .chat-input button:hover {
-            opacity: 0.85;
-        }
 
-        /* FOOTER */
+        /* =========================
+           QUOTE
+        ========================= */
 
-        footer {
-            background: #173d39;
-            color: white;
-            padding: 50px 8%;
+        .quote {
+            padding: 120px 8%;
+
+            background: white;
+
             text-align: center;
         }
 
-        footer p {
-            opacity: 0.75;
-            margin-top: 10px;
+        .quote h2 {
+            max-width: 900px;
+
+            margin: auto;
+
+            font-size: 48px;
+
+            line-height: 1.2;
+
+            font-weight: 400;
         }
 
-        /* MOBILE */
+        .quote p {
+            margin-top: 25px;
 
-        @media (max-width: 750px) {
+            color: #71807c;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            background: #102f2b;
+
+            color: white;
+
+            padding: 60px 8%;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+        }
+
+        footer .logo {
+            color: white;
+        }
+
+        footer p {
+            opacity: 0.6;
+            font-size: 13px;
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 800px) {
 
             nav {
                 display: none;
             }
 
-            .cards {
-                grid-template-columns: 1fr;
+            .header-button {
+                display: none;
             }
 
             .hero {
-                padding: 60px 7%;
+                min-height: 650px;
             }
 
-            .chat-container {
-                padding: 25px;
+            .intro-inner {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .topic-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                letter-spacing: -2px;
+            }
+
+            .ai-intro h2 {
+                font-size: 42px;
+            }
+
+            .quote h2 {
+                font-size: 36px;
+            }
+
+            footer {
+                flex-direction: column;
+                gap: 20px;
             }
         }
+
     </style>
 </head>
 
+
 <body>
 
-    <!-- HEADER -->
 
-    <header>
-        <div class="logo">ACUTIL</div>
+<!-- =========================
+     HEADER
+========================= -->
 
-        <nav>
-            <a href="#home">Kopfsache</a>
-            <a href="#wissen">Acutil</a>
-            <a href="#chat">AI Assistant</a>
-            <a href="#tipps">Tipps</a>
-        </nav>
-    </header>
+<header>
+
+    <div class="logo">
+        ACUTIL
+    </div>
+
+    <nav>
+        <a href="#about">About</a>
+        <a href="#topics">Mind & Body</a>
+        <a href="#assistant">AI Assistant</a>
+        <a href="#inspiration">Inspiration</a>
+    </nav>
+
+    <a href="#assistant" class="header-button">
+        Talk to AI
+    </a>
+
+</header>
 
 
-    <!-- HERO -->
 
-    <section class="hero" id="home">
+<!-- =========================
+     HERO
+========================= -->
 
-        <div class="hero-content">
+<section class="hero" id="home">
 
-            <div class="small-title">
-                Geist & Körper
-            </div>
+    <div class="hero-content">
 
-            <h1>
-                Für die Leistungsfähigkeit von Geist & Körper.
-            </h1>
+        <div class="eyebrow">
+            Mind · Body · Performance
+        </div>
 
-            <p class="hero-text">
-                Entdecke Informationen und Inspiration rund um Konzentration,
-                geistige Leistungsfähigkeit und einen bewussten Alltag.
-            </p>
+        <h1>
+            Feel good.<br>
+            Think clear.
+        </h1>
 
-            <a href="#chat" class="hero-button">
-                Mit unserem AI Assistant sprechen
+        <p>
+            Discover inspiration for a focused mind,
+            an active body and a more balanced everyday life.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#assistant" class="primary-button">
+                Talk to our AI
+            </a>
+
+            <a href="#about" class="secondary-button">
+                Discover more
             </a>
 
         </div>
 
-    </section>
+    </div>
+
+</section>
 
 
-    <!-- INFORMATION -->
 
-    <section class="section" id="wissen">
+<!-- =========================
+     ABOUT
+========================= -->
 
-        <h2 class="section-title">
-            Dein Geist. Deine Aufmerksamkeit.
-        </h2>
+<section class="intro" id="about">
 
-        <div class="cards">
+    <div class="intro-inner">
 
-            <div class="card">
-                <div class="card-number">01</div>
+        <img
+            class="intro-image"
+            src="https://images.unsplash.com/photo-1499209974431-9dddcece7f88?auto=format&fit=crop&w=1200&q=85"
+            alt="Woman enjoying a peaceful moment"
+        >
 
-                <h3>Konzentration</h3>
+        <div class="intro-text">
 
-                <p>
-                    Konzentration hilft uns dabei, wichtige Aufgaben
-                    bewusst wahrzunehmen und unsere Aufmerksamkeit
-                    gezielt einzusetzen.
-                </p>
-            </div>
+            <span>
+                A holistic approach
+            </span>
 
-
-            <div class="card">
-                <div class="card-number">02</div>
-
-                <h3>Mentale Energie</h3>
-
-                <p>
-                    Ein bewusster Alltag, ausreichend Erholung und
-                    gute Gewohnheiten können unsere geistige
-                    Leistungsfähigkeit unterstützen.
-                </p>
-            </div>
-
-
-            <div class="card">
-                <div class="card-number">03</div>
-
-                <h3>Balance</h3>
-
-                <p>
-                    Körper und Geist gehören zusammen. Kleine
-                    Veränderungen im Alltag können einen großen
-                    Unterschied machen.
-                </p>
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- CHAT -->
-
-    <section class="chat-section" id="chat">
-
-        <div class="chat-container">
-
-            <h2 class="chat-title">
-                Dein AI Assistant
+            <h2>
+                Your mind deserves attention too.
             </h2>
 
-            <p class="chat-description">
-                Stelle eine Frage und passe den Charakter
-                des Assistants mit dem Slider an.
+            <p>
+                Our everyday lives can be demanding.
+                Concentration, mental energy and balance
+                all play an important role in how we feel
+                throughout the day.
             </p>
 
+            <br>
 
-            <div class="messages" id="messages">
+            <p>
+                Explore simple ideas and discover new ways
+                to support your mind and body.
+            </p>
 
-                <div class="message bot">
-                    Hallo! 👋 Ich bin dein persönlicher AI Assistant.
-                    Wie kann ich dir helfen?
-                </div>
+        </div>
 
-            </div>
+    </div>
 
-
-            <!-- PERSONALITY SLIDER -->
-
-            <div class="personality">
-
-                <div class="personality-label">
-
-                    <span>Direkt</span>
-
-                    <strong id="personalityValue">
-                        Ausgewogen
-                    </strong>
-
-                    <span>Sehr freundlich</span>
-
-                </div>
-
-                <input
-                    type="range"
-                    id="personality"
-                    min="0"
-                    max="100"
-                    value="50"
-                >
-
-            </div>
+</section>
 
 
-            <!-- MESSAGE INPUT -->
 
-            <div class="chat-input">
+<!-- =========================
+     TOPICS
+========================= -->
 
-                <input
-                    type="text"
-                    id="userInput"
-                    placeholder="Deine Nachricht..."
-                >
+<section class="topics" id="topics">
 
-                <button onclick="sendMessage()">
-                    Senden
-                </button>
+    <div class="section-heading">
+
+        <span>
+            Explore
+        </span>
+
+        <h2>
+            Mind & Body
+        </h2>
+
+        <p>
+            Small habits can make a meaningful difference.
+            Explore the areas that matter for your everyday wellbeing.
+        </p>
+
+    </div>
+
+
+    <div class="topic-grid">
+
+
+        <div class="topic-card">
+
+            <img
+                src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=900&q=85"
+                alt="Meditation"
+            >
+
+            <div class="topic-content">
+
+                <h3>
+                    Focus
+                </h3>
+
+                <p>
+                    Learn more about concentration,
+                    attention and creating moments of focus.
+                </p>
 
             </div>
 
         </div>
 
-    </section>
 
 
-    <!-- FOOTER -->
+        <div class="topic-card">
 
-    <footer id="tipps">
+            <img
+                src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=900&q=85"
+                alt="Exercise"
+            >
 
-        <strong>ACUTIL</strong>
+            <div class="topic-content">
+
+                <h3>
+                    Energy
+                </h3>
+
+                <p>
+                    Discover how movement and an active
+                    lifestyle can support your everyday energy.
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="topic-card">
+
+            <img
+                src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=900&q=85"
+                alt="Healthy food"
+            >
+
+            <div class="topic-content">
+
+                <h3>
+                    Balance
+                </h3>
+
+                <p>
+                    Explore simple ideas around routines,
+                    nutrition and a balanced lifestyle.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     AI ASSISTANT
+========================= -->
+
+<section class="ai-section" id="assistant">
+
+    <div class="ai-intro">
+
+        <span>
+            Meet your personal assistant
+        </span>
+
+        <h2>
+            Ask anything.
+        </h2>
 
         <p>
-            Geist & Körper im Fokus.
+            Our AI assistant can help you explore ideas,
+            answer questions and give you a different perspective.
+            You can even choose how you want it to communicate.
         </p>
 
-    </footer>
+    </div>
 
 
-    <script>
+    <div class="chat-container">
 
-        /* PERSONALITY SLIDER */
+        <div class="messages" id="messages">
 
-        const slider = document.getElementById("personality");
-        const personalityValue =
-            document.getElementById("personalityValue");
+            <div class="message bot">
+                Hello! 👋 I'm your AI assistant.
+                How can I help you today?
+            </div>
 
-        slider.addEventListener("input", function() {
-
-            const value = Number(this.value);
-
-            if (value < 20) {
-                personalityValue.textContent = "Sehr direkt";
-            }
-            else if (value < 40) {
-                personalityValue.textContent = "Direkt";
-            }
-            else if (value < 60) {
-                personalityValue.textContent = "Ausgewogen";
-            }
-            else if (value < 80) {
-                personalityValue.textContent = "Freundlich";
-            }
-            else {
-                personalityValue.textContent = "Sehr freundlich";
-            }
-
-        });
+        </div>
 
 
-        /* TEMPORARY CHAT */
+        <!-- PERSONALITY SLIDER -->
 
-        function sendMessage() {
+        <div class="personality">
 
-            const input =
-                document.getElementById("userInput");
+            <div class="personality-header">
 
-            const messages =
-                document.getElementById("messages");
+                <span>
+                    Communication style
+                </span>
 
-            const text = input.value.trim();
+                <strong id="personalityValue">
+                    Balanced
+                </strong>
 
-            if (!text) {
-                return;
-            }
+            </div>
+
+            <input
+                type="range"
+                id="personality"
+                min="0"
+                max="100"
+                value="50"
+            >
+
+            <div class="range-labels">
+
+                <span>
+                    Direct
+                </span>
+
+                <span>
+                    Balanced
+                </span>
+
+                <span>
+                    Very friendly
+                </span>
+
+            </div>
+
+        </div>
 
 
-            /* User message */
+        <!-- CHAT INPUT -->
 
-            const userMessage =
-                document.createElement("div");
+        <div class="chat-input">
 
-            userMessage.className = "message user";
+            <input
+                type="text"
+                id="userInput"
+                placeholder="Ask your question..."
+            >
 
-            userMessage.textContent = text;
+            <button onclick="sendMessage()">
+                Send
+            </button>
 
-            messages.appendChild(userMessage);
+        </div>
+
+    </div>
+
+</section>
 
 
-            input.value = "";
+
+<!-- =========================
+     QUOTE
+========================= -->
+
+<section class="quote" id="inspiration">
+
+    <h2>
+        “A clear mind creates space for the things that matter.”
+    </h2>
+
+    <p>
+        Take a moment. Breathe. Focus.
+    </p>
+
+</section>
 
 
-            /* Temporary bot response */
 
-            setTimeout(function() {
+<!-- =========================
+     FOOTER
+========================= -->
 
-                const botMessage =
-                    document.createElement("div");
+<footer>
 
-                botMessage.className = "message bot";
+    <div class="logo">
+        ACUTIL
+    </div>
 
-                botMessage.textContent =
-                    "Danke für deine Nachricht! Bald werde ich mit echter AI antworten. 🤖";
+    <p>
+        Mind & Body · Inspiration · AI
+    </p>
 
-                messages.appendChild(botMessage);
+</footer>
 
-                messages.scrollTop =
-                    messages.scrollHeight;
 
-            }, 500);
+
+<script>
+
+    /* =========================
+       PERSONALITY SLIDER
+    ========================= */
+
+    const slider =
+        document.getElementById("personality");
+
+    const personalityValue =
+        document.getElementById("personalityValue");
+
+
+    slider.addEventListener("input", function () {
+
+        const value = Number(this.value);
+
+
+        if (value < 20) {
+
+            personalityValue.textContent =
+                "Very direct";
 
         }
 
-    </script>
+        else if (value < 40) {
+
+            personalityValue.textContent =
+                "Direct";
+
+        }
+
+        else if (value < 60) {
+
+            personalityValue.textContent =
+                "Balanced";
+
+        }
+
+        else if (value < 80) {
+
+            personalityValue.textContent =
+                "Friendly";
+
+        }
+
+        else {
+
+            personalityValue.textContent =
+                "Very friendly";
+
+        }
+
+    });
+
+
+
+    /* =========================
+       TEMPORARY CHAT
+    ========================= */
+
+    function sendMessage() {
+
+        const input =
+            document.getElementById("userInput");
+
+        const messages =
+            document.getElementById("messages");
+
+        const text =
+            input.value.trim();
+
+
+        if (!text) {
+            return;
+        }
+
+
+        /* USER MESSAGE */
+
+        const userMessage =
+            document.createElement("div");
+
+        userMessage.className =
+            "message user";
+
+        userMessage.textContent =
+            text;
+
+        messages.appendChild(userMessage);
+
+
+        input.value = "";
+
+
+        /* TEMPORARY BOT RESPONSE */
+
+        setTimeout(function () {
+
+            const botMessage =
+                document.createElement("div");
+
+            botMessage.className =
+                "message bot";
+
+            botMessage.textContent =
+                "Thanks for your question! Soon I'll be connected to the real AI. 🤖";
+
+            messages.appendChild(botMessage);
+
+
+            messages.scrollTop =
+                messages.scrollHeight;
+
+        }, 500);
+
+    }
+
+</script>
+
 
 </body>
 </html>
+```
